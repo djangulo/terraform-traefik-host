@@ -29,7 +29,7 @@ for service in \$(ls -1r ./services); do
     CMD+=" -f ./services/\$service/docker-compose.yml";
 done;
 CMD+=" \$@"
-
+echo -e "\e[33m\$CMD"
 eval "\$CMD"
 
 EOF

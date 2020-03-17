@@ -65,7 +65,7 @@ services:
 You can concatenate files with the `compose.sh` script. Assuming you have `services/{service-a,service-b,service-c}`, it will produce and run an output equivalent to this. All arguments to `docker-compose` are appended to the chained files.
 
 ```bash
-$ ./composeup.sh up --detach
+$ ./compose.sh up --detach
 docker-compose -f docker-compose.yml \
   -f ./services/service-a/docker-compose.yml \
   -f ./services/service-b/docker-compose.yml \
