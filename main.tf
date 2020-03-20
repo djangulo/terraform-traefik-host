@@ -1,6 +1,6 @@
 module "docker_compose_host" {
   source  = "djangulo/docker-compose-host/digitalocean"
-  version = "0.2.3"
+  version = "0.2.444"
 
   do_token     = var.do_token
   droplet_name = "Projects"
@@ -9,11 +9,12 @@ module "docker_compose_host" {
   region       = "nyc3"
   size         = "s-1vcpu-1gb"
 
-  ssh_keys    = var.ssh_keys
-  init_script = "./scripts/setup.sh"
-  domain      = var.domain
-  user        = var.user
-  records     = var.records
+  ssh_keys        = var.ssh_keys
+  ssh_private_key = var.ssh_private_key
+  init_script     = "./scripts/setup.sh"
+  domain          = var.domain
+  user            = var.user
+  records         = var.records
 }
 
 resource "null_resource" "traefik_up" {

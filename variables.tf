@@ -7,6 +7,12 @@ variable "ssh_keys" {
   description = "List of SSH IDs or fingerprints to enable. They must already exist in your DO account. Provisioning will fail as \"remote-exec\" uses ssh to initalize the droplet."
 }
 
+variable "ssh_private_key" {
+  type        = string
+  description = "SSH private key used to access the server."
+  default     = ""
+}
+
 variable "do_token" {
   type        = string
   description = "DigitalOcean authentication token."
