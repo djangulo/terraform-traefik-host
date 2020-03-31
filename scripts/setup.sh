@@ -4,9 +4,7 @@
 ## Create directory scaffolding.
 ##
 
-set -o errexit
-set -o pipefail
-set -o nounset
+set -euxo pipefail
 
 mkdir -p $(pwd)/traefik
 working_dir=$(pwd)/traefik
@@ -19,6 +17,8 @@ mkdir -p \
 
 cat <<EOF > $working_dir/compose.sh
 #/usr/bin/env bash
+
+set -euxo pipefail
 
 ##
 ## Chains together all the docker-compose.yml files in ./services/ in order to load-balance
