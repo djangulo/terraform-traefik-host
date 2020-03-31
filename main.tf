@@ -20,9 +20,10 @@ module "docker_compose_host" {
 resource "null_resource" "traefik_up" {
 
   connection {
-    type = "ssh"
-    user = var.user
-    host = module.docker_compose_host.ipv4_address
+    type        = "ssh"
+    user        = var.user
+    host        = module.docker_compose_host.ipv4_address
+    private_key = var.ssh_private_key
   }
 
   provisioner "file" {
