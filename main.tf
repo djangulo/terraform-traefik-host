@@ -1,6 +1,6 @@
 module "docker_compose_host" {
   source  = "djangulo/docker-compose-host/digitalocean"
-  version = "0.2.5"
+  version = "0.2.6"
 
   do_token     = var.do_token
   droplet_name = "Projects"
