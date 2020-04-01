@@ -37,11 +37,11 @@ version: "3"
 services:
   service_a:
     build:
-      context: .
-      dockerfile: ./services/service-a/Dockerfile
+      context: $SERVICESDIR # see scripts/setup.sh
+      dockerfile: ./service-a/Dockerfile
     volumes:
-      - ./services/service-a/config:/config
-      - ./services/service-a/db:/db
+      - ./service-a/config:/config
+      - ./service-a/db:/db
     command: start-my-webapp -p 8080
     environment:
       DB_URI: postgres://user:pass@host:port/db

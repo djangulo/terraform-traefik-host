@@ -24,9 +24,11 @@ set -euxo pipefail
 ## Chains together all the docker-compose.yml files in ./services/ in order to load-balance
 ## them under traefik.
 
+export SERVICESDIR=/home/$USER/traefik/services
+
 CMD="docker-compose -f docker-compose.yml"
-for service in \$(ls -1r ./services); do
-    CMD+=" -f ./services/\$service/docker-compose.yml";
+for service in \$(ls -1r \$SERVICESDIR); do
+    CMD+=" -f \$SERVICESDIR/\$service/docker-compose.yml";
 done;
 CMD+=" \$@"
 echo -e "\e[33m\$CMD"
