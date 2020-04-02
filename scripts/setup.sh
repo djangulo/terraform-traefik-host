@@ -11,9 +11,12 @@ working_dir=$(pwd)/traefik
 
 cd $working_dir
 
+sudo apt-get update && sudo apt-get install apache2-utils
+
 mkdir -p \
     $working_dir/letsencrypt \
-    $working_dir/services
+    $working_dir/services \
+    $working_dir/htpasswd.d
 
 cat <<EOF > $working_dir/compose.sh
 #/usr/bin/env bash

@@ -12,10 +12,13 @@ services:
       # - "--certificatesresolvers.leresolver.acme.httpchallenge=true"
       # - "--certificatesresolvers.leresolver.acme.httpchallenge.entrypoint=web"
       # - "--certificatesresolvers.leresolver.acme.email=${letsencrypt_admin_email}"
-      # - "--certificatesresolvers.leresolver.acme.email=/letsencrypt/acme.json"
+      # - "--certificatesresolvers.leresolver.acme.storage=/letsencrypt/acme.json"
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ./letsencrypt:/letsencrypt:rw
+      # basicauth for individual services
+      # set a file for each service
+      - ./htpasswd.d:/htpasswd.d:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
